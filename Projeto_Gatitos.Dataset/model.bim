@@ -1,5 +1,5 @@
 {
-  "compatibilityLevel": 1550,
+  "compatibilityLevel": 1567,
   "model": {
     "annotations": [
       {
@@ -165,6 +165,13 @@
         "fromTable": "Vendas",
         "toColumn": "ID Produto",
         "toTable": "Produtos"
+      },
+      {
+        "name": "b65d0276-c459-443c-93fa-143568983b01",
+        "fromColumn": "ID Consumidor",
+        "fromTable": "Vendas",
+        "toColumn": "ID Consumidor",
+        "toTable": "Clientes"
       }
     ],
     "sourceQueryCulture": "pt-BR",
@@ -194,7 +201,7 @@
             "formatString": "0",
             "lineageTag": "c7c77bb9-6a06-47ca-8ddc-97178372234a",
             "sourceColumn": "ID Consumidor",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "Gênero",
@@ -234,7 +241,7 @@
             "formatString": "0",
             "lineageTag": "11653322-9d58-460b-b14e-37282d8466ef",
             "sourceColumn": "Pets",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "Bairro",
@@ -260,9 +267,10 @@
                 "let",
                 "    Source = Csv.Document(File.Contents(\"C:\\Users\\adminrandom\\Estudos\\Alura\\formacao_powerbi\\Clientes.txt\"),[Delimiter=\"\t\", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"ID Consumidor\", Int64.Type}, {\"Gênero\", type text}, {\"Estado civil\", type text}, {\"Pets\", Int64.Type}, {\"Bairro\", type text}})",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"ID Consumidor\", Int64.Type}, {\"Gênero\", type text}, {\"Estado civil\", type text}, {\"Pets\", Int64.Type}, {\"Bairro\", type text}}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Changed Type\", each [ID Consumidor] <> null and [ID Consumidor] <> \"\")",
                 "in",
-                "    #\"Changed Type\""
+                "    #\"Filtered Rows\""
               ],
               "type": "m"
             }
@@ -491,6 +499,11 @@
             "value": "Table"
           }
         ],
+        "changedProperties": [
+          {
+            "property": "IsHidden"
+          }
+        ],
         "columns": [
           {
             "name": "ID Produto",
@@ -498,6 +511,11 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
               }
             ],
             "dataType": "int64",
@@ -514,6 +532,11 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
             "lineageTag": "a40a2e4c-c69c-4b1f-9e0a-669cbd8285d0",
             "sourceColumn": "Nome produto",
@@ -527,6 +550,11 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "string",
             "lineageTag": "6e2d021a-abab-45eb-ace6-99c677d69951",
             "sourceColumn": "Categoria",
@@ -538,6 +566,11 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
               }
             ],
             "dataType": "string",
@@ -557,6 +590,11 @@
                 "value": "{\"currencyCulture\":\"pt-BR\"}"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "decimal",
             "formatString": "\"R$\"\\ #,0.###############;-\"R$\"\\ #,0.###############;\"R$\"\\ #,0.###############",
             "lineageTag": "556604e7-ec75-41a0-80dc-bcde87e02eb1",
@@ -569,6 +607,11 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
               }
             ],
             "dataType": "string",
@@ -668,7 +711,7 @@
             "formatString": "0",
             "lineageTag": "a91be0b2-6c28-49f6-a530-0772ef713eda",
             "sourceColumn": "ID Consumidor",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "ID Produto",

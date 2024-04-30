@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 12
+            "x": 551,
+            "y": 275
           },
           "nodeIndex": "Clientes",
           "nodeLineageTag": "edce29c4-6e31-48e4-9dd3-b150b395aefb",
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 284,
-            "y": 0
+            "x": 287,
+            "y": 7
           },
           "nodeIndex": "Produtos",
           "nodeLineageTag": "537833e7-fa40-4819-9faa-4e35aa444a54",
@@ -36,13 +36,13 @@
         },
         {
           "location": {
-            "x": 568,
-            "y": 12
+            "x": 795,
+            "y": 0
           },
           "nodeIndex": "Vendas",
           "nodeLineageTag": "d19058ab-e724-4834-9121-eb7eecf1fd55",
           "size": {
-            "height": 200,
+            "height": 212,
             "width": 234
           },
           "zIndex": 0
