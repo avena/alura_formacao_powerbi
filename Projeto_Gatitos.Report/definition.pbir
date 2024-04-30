@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../Projeto_Gatitos.Dataset"
+    },
+    "byConnection": null
+  }
+}
