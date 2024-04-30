@@ -740,9 +740,63 @@
             "lineageTag": "fd29a722-6923-453f-97d2-55b58b1d6d30",
             "sourceColumn": "Quantidade",
             "summarizeBy": "sum"
+          },
+          {
+            "name": "Valor",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "dataType": "decimal",
+            "expression": "LOOKUPVALUE(Produtos[Valor],Produtos[ID Produto],Vendas[ID Produto])",
+            "formatString": "\"R$\"\\ #,0.###############;-\"R$\"\\ #,0.###############;\"R$\"\\ #,0.###############",
+            "isDataTypeInferred": true,
+            "lineageTag": "df6258ba-98b8-4b79-966b-65f361ef02bc",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "Faturamento",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "dataType": "decimal",
+            "expression": "Vendas[Quantidade]*Vendas[Valor]",
+            "formatString": "\"R$\"\\ #,0.###############;-\"R$\"\\ #,0.###############;\"R$\"\\ #,0.###############",
+            "isDataTypeInferred": true,
+            "lineageTag": "17bf43f9-2f43-4eac-9977-d52b9bfd08d1",
+            "summarizeBy": "sum",
+            "type": "calculated"
           }
         ],
         "lineageTag": "d19058ab-e724-4834-9121-eb7eecf1fd55",
+        "measures": [
+          {
+            "name": "Total Faturamento",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "expression": "sum(Vendas[Faturamento])",
+            "formatString": "\"R$\"\\ #,0.###############;-\"R$\"\\ #,0.###############;\"R$\"\\ #,0.###############",
+            "lineageTag": "978f97bb-9946-4487-b70d-1c1630581042"
+          }
+        ],
         "partitions": [
           {
             "name": "Vendas",
