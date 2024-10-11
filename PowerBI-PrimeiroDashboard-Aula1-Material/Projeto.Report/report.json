@@ -1,6 +1,10 @@
 {
   "config": "{\"version\":\"5.55\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU06\",\"version\":\"5.55\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
   "layoutOptimization": 0,
+  "publicCustomVisuals": [
+    "ImageGrid_FC5183B9_926C_45E0_B5F7_0CE9EAF1DA9B",
+    "textFilter25A4896A83E0487089E2B90C9AE57C8A"
+  ],
   "resourcePackages": [
     {
       "resourcePackage": {
@@ -27,58 +31,94 @@
       "name": "091226a62d8173bec402",
       "visualContainers": [
         {
-          "config": "{\"name\":\"01c104f143f3a5c9597a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":348.1724347298118,\"y\":25.646630236794174,\"z\":1,\"width\":255.68913175470556,\"height\":173.3090467516697,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Vendas.Quantidade)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Quantidade\"}},\"Function\":0},\"Name\":\"Sum(Vendas.Quantidade)\",\"NativeReferenceName\":\"Sum of Quantidade\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Quantidade\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"01c104f143f3a5c9597a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":348.1724347298118,\"y\":25.646630236794174,\"z\":1000,\"width\":255.68913175470556,\"height\":173.3090467516697,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Vendas.Quantidade)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Quantidade\"}},\"Function\":0},\"Name\":\"Sum(Vendas.Quantidade)\",\"NativeReferenceName\":\"Sum of Quantidade\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Quantidade\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
           "filters": "[]",
           "height": 173.31,
           "width": 255.69,
           "x": 348.17,
           "y": 25.65,
-          "z": 1.00
+          "z": 1000.00
         },
         {
-          "config": "{\"name\":\"0977bf1367296f707ab1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":724.3230115361264,\"y\":38.858530661809354,\"z\":4,\"width\":344.28658166363084,\"height\":304.65088038858534,\"tabOrder\":4}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Clientes.Bairro\",\"active\":true}],\"Y\":[{\"queryRef\":\"Vendas.Faturamento Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Clientes\",\"Type\":0},{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Bairro\"},\"Name\":\"Clientes.Bairro\",\"NativeReferenceName\":\"Bairro\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"},\"Name\":\"Vendas.Faturamento Total\",\"NativeReferenceName\":\"Faturamento Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"0977bf1367296f707ab1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":724.3230115361264,\"y\":38.858530661809354,\"z\":4000,\"width\":344.28658166363084,\"height\":304.65088038858534,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Clientes.Bairro\",\"active\":true}],\"Y\":[{\"queryRef\":\"Vendas.Faturamento Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Clientes\",\"Type\":0},{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Bairro\"},\"Name\":\"Clientes.Bairro\",\"NativeReferenceName\":\"Bairro\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"},\"Name\":\"Vendas.Faturamento Total\",\"NativeReferenceName\":\"Faturamento Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
           "filters": "[]",
           "height": 304.65,
           "width": 344.29,
           "x": 724.32,
           "y": 38.86,
-          "z": 4.00
+          "z": 4000.00
         },
         {
-          "config": "{\"name\":\"703d2b1ad695fdf04160\",\"layouts\":[{\"id\":0,\"position\":{\"x\":26.42380085003036,\"y\":226.15664845173043,\"z\":2,\"width\":299.9878567091682,\"height\":152.32544019429267,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Vendas.Faturamento Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"},\"Name\":\"Vendas.Faturamento Total\",\"NativeReferenceName\":\"Faturamento Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"5377ef8113126c5ba9e4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1068.1985638463939,\"y\":88.31720262254136,\"z\":6000,\"width\":197.0152981579769,\"height\":188.6231657820793,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"ImageGrid_FC5183B9_926C_45E0_B5F7_0CE9EAF1DA9B\",\"projections\":{\"ImageURL\":[{\"queryRef\":\"Produtos.Url img\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Produtos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Url img\"},\"Name\":\"Produtos.Url img\",\"NativeReferenceName\":\"Url img\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 188.62,
+          "width": 197.02,
+          "x": 1068.20,
+          "y": 88.32,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"703d2b1ad695fdf04160\",\"layouts\":[{\"id\":0,\"position\":{\"x\":26.42380085003036,\"y\":226.15664845173043,\"z\":2000,\"width\":299.9878567091682,\"height\":152.32544019429267,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Vendas.Faturamento Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"},\"Name\":\"Vendas.Faturamento Total\",\"NativeReferenceName\":\"Faturamento Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
           "filters": "[]",
           "height": 152.33,
           "width": 299.99,
           "x": 26.42,
           "y": 226.16,
-          "z": 2.00
+          "z": 2000.00
         },
         {
-          "config": "{\"name\":\"8567220e3e7fe22b5219\",\"layouts\":[{\"id\":0,\"position\":{\"x\":354.3897996357013,\"y\":226.15664845173043,\"z\":3,\"width\":255.68913175470556,\"height\":148.43958712811173,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Clientes.Gênero\",\"active\":true}],\"Y\":[{\"queryRef\":\"Vendas.Faturamento Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Clientes\",\"Type\":0},{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Gênero\"},\"Name\":\"Clientes.Gênero\",\"NativeReferenceName\":\"Gênero\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"},\"Name\":\"Vendas.Faturamento Total\",\"NativeReferenceName\":\"Faturamento Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"8567220e3e7fe22b5219\",\"layouts\":[{\"id\":0,\"position\":{\"x\":354.3897996357013,\"y\":226.15664845173043,\"z\":3000,\"width\":255.68913175470556,\"height\":148.43958712811173,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Clientes.Gênero\",\"active\":true}],\"Y\":[{\"queryRef\":\"Vendas.Faturamento Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Clientes\",\"Type\":0},{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Gênero\"},\"Name\":\"Clientes.Gênero\",\"NativeReferenceName\":\"Gênero\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"},\"Name\":\"Vendas.Faturamento Total\",\"NativeReferenceName\":\"Faturamento Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
           "filters": "[]",
           "height": 148.44,
           "width": 255.69,
           "x": 354.39,
           "y": 226.16,
-          "z": 3.00
+          "z": 3000.00
         },
         {
-          "config": "{\"name\":\"93764685a938d7ff8c95\",\"layouts\":[{\"id\":0,\"position\":{\"x\":26.42380085003036,\"y\":403.3515482695811,\"z\":5,\"width\":1194.5112325440195,\"height\":305.42805100182153,\"tabOrder\":5}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Vendas.Data de compra.Variation.Date Hierarchy.Year\"},{\"queryRef\":\"Vendas.Data de compra.Variation.Date Hierarchy.Quarter\"},{\"queryRef\":\"Vendas.Data de compra.Variation.Date Hierarchy.Month\",\"active\":true},{\"queryRef\":\"Vendas.Data de compra.Variation.Date Hierarchy.Day\"}],\"Y\":[{\"queryRef\":\"Vendas.Faturamento Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Name\":\"Variation\",\"Property\":\"Data de compra\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"Vendas.Data de compra.Variation.Date Hierarchy.Year\",\"NativeReferenceName\":\"Data de compra Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Name\":\"Variation\",\"Property\":\"Data de compra\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Quarter\"},\"Name\":\"Vendas.Data de compra.Variation.Date Hierarchy.Quarter\",\"NativeReferenceName\":\"Data de compra Quarter\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Name\":\"Variation\",\"Property\":\"Data de compra\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"Vendas.Data de compra.Variation.Date Hierarchy.Month\",\"NativeReferenceName\":\"Data de compra Month\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Name\":\"Variation\",\"Property\":\"Data de compra\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Day\"},\"Name\":\"Vendas.Data de compra.Variation.Date Hierarchy.Day\",\"NativeReferenceName\":\"Data de compra Day\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"},\"Name\":\"Vendas.Faturamento Total\",\"NativeReferenceName\":\"Faturamento Total\"}]},\"drillFilterOtherVisuals\":true}}",
-          "filters": "[{\"name\":null,\"expression\":{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Vendas\"}},\"Name\":\"Variation\",\"Property\":\"Data de compra\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"l\",\"Entity\":\"LocalDateTable_5142ff54-2ae8-409f-83db-9069d3a9b7bd\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"Year\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2021L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":2}]",
-          "height": 305.43,
-          "width": 1194.51,
-          "x": 26.42,
-          "y": 403.35,
-          "z": 5.00
+          "config": "{\"name\":\"93764685a938d7ff8c95\",\"layouts\":[{\"id\":0,\"position\":{\"x\":26.375273181392444,\"y\":403.2219793943178,\"z\":5000,\"width\":1019.4442709959412,\"height\":305.7133936934124,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Vendas.Data de compra.Variation.Date Hierarchy.Year\",\"active\":true},{\"queryRef\":\"Vendas.Data de compra.Variation.Date Hierarchy.Quarter\",\"active\":true},{\"queryRef\":\"Vendas.Data de compra.Variation.Date Hierarchy.Month\"},{\"queryRef\":\"Vendas.Data de compra.Variation.Date Hierarchy.Day\"}],\"Y\":[{\"queryRef\":\"Vendas.Faturamento Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Name\":\"Variation\",\"Property\":\"Data de compra\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"Vendas.Data de compra.Variation.Date Hierarchy.Year\",\"NativeReferenceName\":\"Data de compra Year\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Name\":\"Variation\",\"Property\":\"Data de compra\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Quarter\"},\"Name\":\"Vendas.Data de compra.Variation.Date Hierarchy.Quarter\",\"NativeReferenceName\":\"Data de compra Quarter\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Name\":\"Variation\",\"Property\":\"Data de compra\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"Vendas.Data de compra.Variation.Date Hierarchy.Month\",\"NativeReferenceName\":\"Data de compra Month\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Name\":\"Variation\",\"Property\":\"Data de compra\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Day\"},\"Name\":\"Vendas.Data de compra.Variation.Date Hierarchy.Day\",\"NativeReferenceName\":\"Data de compra Day\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"},\"Name\":\"Vendas.Faturamento Total\",\"NativeReferenceName\":\"Faturamento Total\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 305.71,
+          "width": 1019.44,
+          "x": 26.38,
+          "y": 403.22,
+          "z": 5000.00
         },
         {
-          "config": "{\"name\":\"a259ee45835c8f93f553\",\"layouts\":[{\"id\":0,\"position\":{\"x\":26.42380085003036,\"y\":22.537947783849425,\"z\":0,\"width\":299.9878567091682,\"height\":179.5264116575592}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Avg(Clientes.Pets)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Clientes\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Pets\"}},\"Function\":1},\"Name\":\"Avg(Clientes.Pets)\",\"NativeReferenceName\":\"Average of Pets\"}]},\"autoSelectVisualType\":true,\"drillFilterOtherVisuals\":true}}",
+          "config": "{\"name\":\"a259ee45835c8f93f553\",\"layouts\":[{\"id\":0,\"position\":{\"x\":26.42380085003036,\"y\":22.537947783849425,\"z\":0,\"width\":299.9878567091682,\"height\":179.5264116575592,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Avg(Clientes.Pets)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Clientes\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Pets\"}},\"Function\":1},\"Name\":\"Avg(Clientes.Pets)\",\"NativeReferenceName\":\"Average of Pets\"}]},\"autoSelectVisualType\":true,\"drillFilterOtherVisuals\":true}}",
           "filters": "[]",
           "height": 179.53,
           "width": 299.99,
           "x": 26.42,
           "y": 22.54,
           "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"c5412ffcb9bf007611fb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1068.1985638463939,\"y\":5.195129566031845,\"z\":6001,\"width\":197.0152981579769,\"height\":77.52731813924446,\"tabOrder\":6001}}],\"singleVisual\":{\"visualType\":\"textFilter25A4896A83E0487089E2B90C9AE57C8A\",\"projections\":{\"field\":[{\"queryRef\":\"Produtos.Nome produto\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Produtos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Nome produto\"},\"Name\":\"Produtos.Nome produto\",\"NativeReferenceName\":\"Nome produto\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 77.53,
+          "width": 197.02,
+          "x": 1068.20,
+          "y": 5.20,
+          "z": 6001.00
+        },
+        {
+          "config": "{\"name\":\"d5ff9fcce0193c38acdf\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1068.9978145488603,\"y\":295.32313456134875,\"z\":6002,\"width\":164.64564470808617,\"height\":79.12581954417733,\"tabOrder\":6002}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Produtos.Marca\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Produtos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Marca\"},\"Name\":\"Produtos.Marca\",\"NativeReferenceName\":\"Marca\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 79.13,
+          "width": 164.65,
+          "x": 1069.00,
+          "y": 295.32,
+          "z": 6002.00
+        },
+        {
+          "config": "{\"name\":\"e3831ace279409ea7363\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1069,\"y\":403,\"width\":165,\"height\":306,\"z\":6003,\"tabOrder\":6003}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Vendas.Data de compra\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Data de compra\"},\"Name\":\"Vendas.Data de compra\",\"NativeReferenceName\":\"Data de compra\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Data de compra\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2020-12-19T00:00:00'\"}}},\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2022-12-31T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Where\":[{\"Condition\":{\"And\":{\"Left\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Data de compra\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2020-12-19T00:00:00'\"}}}},\"Right\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Data de compra\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2023-01-01T00:00:00'\"}}}}}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 306.00,
+          "width": 165.00,
+          "x": 1069.00,
+          "y": 403.00,
+          "z": 6003.00
         }
       ],
       "width": 1280.00
