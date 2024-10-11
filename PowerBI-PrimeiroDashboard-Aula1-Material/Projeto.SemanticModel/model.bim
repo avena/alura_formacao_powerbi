@@ -8,11 +8,11 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.130.930.0 (24.06)"
+        "value": "2.136.1478.0 (24.09)"
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Clientes\",\"Parameter1\",\"Transform Sample File\",\"Sample File\",\"Transform File\",\"Vendas\",\"Parameter2\",\"Transform Sample File (2)\",\"Sample File (2)\",\"Transform File (2)\",\"Produtos\"]"
+        "value": "[\"Parameter1\",\"Transform Sample File\",\"Sample File\",\"Transform File\",\"Vendas\",\"Parameter2\",\"Transform Sample File (2)\",\"Sample File (2)\",\"Transform File (2)\",\"Produtos\",\"Clientes\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -98,10 +98,10 @@
         ],
         "expression": [
           "let",
-          "    Source = (Parameter1) => let",
-          "        Source = Excel.Workbook(Parameter1, null, true)",
-          "    in",
-          "        Source",
+          "    Source = (Parameter1 as binary) => let",
+          "    Source = Excel.Workbook(Parameter1, null, true)",
+          "in",
+          "    Source",
           "in",
           "    Source"
         ],
@@ -171,11 +171,11 @@
         ],
         "expression": [
           "let",
-          "    Source = (Parameter2) => let",
-          "        Source = Excel.Workbook(Parameter2, null, true),",
-          "        Vendas_Table = Source{[Item=\"Vendas\",Kind=\"Table\"]}[Data]",
-          "    in",
-          "        Vendas_Table",
+          "    Source = (Parameter2 as binary) => let",
+          "    Source = Excel.Workbook(Parameter2, null, true),",
+          "    Vendas_Table = Source{[Item=\"Vendas\",Kind=\"Table\"]}[Data]",
+          "in",
+          "    Vendas_Table",
           "in",
           "    Source"
         ],
@@ -231,110 +231,24 @@
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_5142ff54-2ae8-409f-83db-9069d3a9b7bd"
+      },
+      {
+        "name": "b8a0bd13-e533-7dc9-9bcd-32096b4b67ff",
+        "fromColumn": "ID Produto",
+        "fromTable": "Vendas",
+        "toColumn": "ID Produto",
+        "toTable": "Produtos"
+      },
+      {
+        "name": "b5404823-2731-06d7-53ed-8ff7f09cf70a",
+        "fromColumn": "ID Consumidor",
+        "fromTable": "Vendas",
+        "toColumn": "ID Consumidor",
+        "toTable": "Clientes"
       }
     ],
     "sourceQueryCulture": "pt-BR",
     "tables": [
-      {
-        "name": "Clientes",
-        "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "columns": [
-          {
-            "name": "ID Consumidor",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "a3602177-645a-4af3-a3fd-b40e719113b2",
-            "sourceColumn": "ID Consumidor",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "Gênero",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "91a33ef0-bb9e-4880-8a50-0f1b0727ac03",
-            "sourceColumn": "Gênero",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Estado civil",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "b8808f1d-9d71-4c1d-abac-0f90f3dbe2f0",
-            "sourceColumn": "Estado civil",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Pets",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "7c08535a-e9bb-4680-ab48-724b2126b0ab",
-            "sourceColumn": "Pets",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "Bairro",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "bfc58634-9675-405e-ad88-b53e604582ae",
-            "sourceColumn": "Bairro",
-            "summarizeBy": "none"
-          }
-        ],
-        "lineageTag": "4213b6d8-9fdc-4ef1-9f85-c079555f329f",
-        "partitions": [
-          {
-            "name": "Clientes",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Source = Csv.Document(File.Contents(\"C:\\Users\\adminrandom\\Estudos\\Alura\\formacao_powerbi\\PowerBI-PrimeiroDashboard-Aula1-Material\\base\\Clientes.txt\"),[Delimiter=\"\t\", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
-                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"ID Consumidor\", Int64.Type}, {\"Gênero\", type text}, {\"Estado civil\", type text}, {\"Pets\", Int64.Type}, {\"Bairro\", type text}})",
-                "in",
-                "    #\"Changed Type\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
       {
         "name": "DateTableTemplate_c18cb748-0234-4846-8790-31ea4c1350ac",
         "annotations": [
@@ -557,11 +471,6 @@
             "value": "Table"
           }
         ],
-        "changedProperties": [
-          {
-            "property": "Name"
-          }
-        ],
         "columns": [
           {
             "name": "Transacao",
@@ -618,7 +527,7 @@
             "formatString": "0",
             "lineageTag": "a2b4b2bd-5628-4288-ba0e-43a9cbd88206",
             "sourceColumn": "ID Consumidor",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "ID Produto",
@@ -632,7 +541,7 @@
             "formatString": "0",
             "lineageTag": "7d8dafbe-1f01-48a9-b6db-db6880e652d1",
             "sourceColumn": "ID Produto",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "Quantidade",
@@ -904,7 +813,7 @@
             "formatString": "0",
             "lineageTag": "7ccfb7d3-729b-4f35-a3b9-07a3d8d81fec",
             "sourceColumn": "1",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "ID Produto",
@@ -974,7 +883,7 @@
             "formatString": "\"R$\"\\ #,0.###############;-\"R$\"\\ #,0.###############;\"R$\"\\ #,0.###############",
             "lineageTag": "722f05d8-716f-4b66-b3e8-2fc66f386751",
             "sourceColumn": "Valor",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "Url img",
@@ -1006,6 +915,107 @@
                 "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Valor\", Currency.Type}})",
                 "in",
                 "    #\"Changed Type1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Clientes",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          }
+        ],
+        "columns": [
+          {
+            "name": "ID Consumidor",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b6e4fa1b-6dce-45e3-9f4b-e2a56d127977",
+            "sourceColumn": "ID Consumidor",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Gênero",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4d240ff7-1a89-439f-8641-778b7665de68",
+            "sourceColumn": "Gênero",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Estado civil",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4c9fc6b5-e48d-450f-8038-8a8165df8942",
+            "sourceColumn": "Estado civil",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Pets",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "cdf5f07a-7f7e-4305-830c-860f886e4f63",
+            "sourceColumn": "Pets",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Bairro",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a7343969-6ee7-4597-84f9-df98cb941fa5",
+            "sourceColumn": "Bairro",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "468eea85-4ef5-4cab-a615-d854bc3b4ced",
+        "partitions": [
+          {
+            "name": "Clientes",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\adminrandom\\Estudos\\Alura\\formacao_powerbi\\PowerBI-PrimeiroDashboard-Aula1-Material\\base\\Clientes.txt\"),[Delimiter=\"\t\", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"ID Consumidor\", Int64.Type}, {\"Gênero\", type text}, {\"Estado civil\", type text}, {\"Pets\", Int64.Type}, {\"Bairro\", type text}}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Changed Type\", each [ID Consumidor] <> null and [ID Consumidor] <> \"\")",
+                "in",
+                "    #\"Filtered Rows\""
               ],
               "type": "m"
             }
