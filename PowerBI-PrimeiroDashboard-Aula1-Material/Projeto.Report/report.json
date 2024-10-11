@@ -45,6 +45,15 @@
           "z": 2.00
         },
         {
+          "config": "{\"name\":\"8567220e3e7fe22b5219\",\"layouts\":[{\"id\":0,\"position\":{\"x\":539.3564055859139,\"y\":343.5094110503947,\"z\":3,\"width\":255.68913175470556,\"height\":300.76502732240436,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Clientes.Gênero\",\"active\":true}],\"Y\":[{\"queryRef\":\"Vendas.Faturamento Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Clientes\",\"Type\":0},{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Gênero\"},\"Name\":\"Clientes.Gênero\",\"NativeReferenceName\":\"Gênero\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"},\"Name\":\"Vendas.Faturamento Total\",\"NativeReferenceName\":\"Faturamento Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Faturamento Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 300.77,
+          "width": 255.69,
+          "x": 539.36,
+          "y": 343.51,
+          "z": 3.00
+        },
+        {
           "config": "{\"name\":\"a259ee45835c8f93f553\",\"layouts\":[{\"id\":0,\"position\":{\"x\":66.0595021250759,\"y\":43.52155434122648,\"z\":0,\"width\":299.9878567091682,\"height\":299.9878567091682}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Avg(Clientes.Pets)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Clientes\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Pets\"}},\"Function\":1},\"Name\":\"Avg(Clientes.Pets)\",\"NativeReferenceName\":\"Average of Pets\"}]},\"autoSelectVisualType\":true,\"drillFilterOtherVisuals\":true}}",
           "filters": "[]",
           "height": 299.99,
