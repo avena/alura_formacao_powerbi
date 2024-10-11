@@ -63,12 +63,12 @@
           "z": 4000.00
         },
         {
-          "config": "{\"name\":\"5377ef8113126c5ba9e4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1068.1985638463939,\"y\":88.31720262254136,\"z\":6000,\"width\":197.0152981579769,\"height\":188.6231657820793,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"ImageGrid_FC5183B9_926C_45E0_B5F7_0CE9EAF1DA9B\",\"projections\":{\"ImageURL\":[{\"queryRef\":\"Produtos.Url img\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Produtos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Url img\"},\"Name\":\"Produtos.Url img\",\"NativeReferenceName\":\"Url img\"}]},\"drillFilterOtherVisuals\":true}}",
+          "config": "{\"name\":\"5377ef8113126c5ba9e4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1068.9404388714734,\"y\":143.2476489028213,\"z\":6000,\"width\":197.0156739811912,\"height\":188.58934169278996,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"ImageGrid_FC5183B9_926C_45E0_B5F7_0CE9EAF1DA9B\",\"projections\":{\"ImageURL\":[{\"queryRef\":\"Produtos.Url img\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Produtos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Url img\"},\"Name\":\"Produtos.Url img\",\"NativeReferenceName\":\"Url img\"}]},\"drillFilterOtherVisuals\":true}}",
           "filters": "[]",
-          "height": 188.62,
+          "height": 188.59,
           "width": 197.02,
-          "x": 1068.20,
-          "y": 88.32,
+          "x": 1068.94,
+          "y": 143.25,
           "z": 6000.00
         },
         {
@@ -108,31 +108,31 @@
           "z": 0.00
         },
         {
-          "config": "{\"name\":\"c5412ffcb9bf007611fb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1068.1985638463939,\"y\":5.195129566031845,\"z\":6001,\"width\":197.0152981579769,\"height\":77.52731813924446,\"tabOrder\":6001}}],\"singleVisual\":{\"visualType\":\"textFilter25A4896A83E0487089E2B90C9AE57C8A\",\"projections\":{\"field\":[{\"queryRef\":\"Produtos.Nome produto\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Produtos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Nome produto\"},\"Name\":\"Produtos.Nome produto\",\"NativeReferenceName\":\"Nome produto\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{}}]}}}",
+          "config": "{\"name\":\"c5412ffcb9bf007611fb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1068.9404388714734,\"y\":432.15047021943576,\"z\":7000,\"width\":197.0156739811912,\"height\":77.44200626959248,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"textFilter25A4896A83E0487089E2B90C9AE57C8A\",\"projections\":{\"field\":[{\"queryRef\":\"Produtos.Nome produto\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Produtos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Nome produto\"},\"Name\":\"Produtos.Nome produto\",\"NativeReferenceName\":\"Nome produto\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{}}]}}}",
           "filters": "[]",
-          "height": 77.53,
+          "height": 77.44,
           "width": 197.02,
-          "x": 1068.20,
-          "y": 5.20,
-          "z": 6001.00
+          "x": 1068.94,
+          "y": 432.15,
+          "z": 7000.00
         },
         {
-          "config": "{\"name\":\"d5ff9fcce0193c38acdf\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1068.9978145488603,\"y\":295.32313456134875,\"z\":6002,\"width\":164.64564470808617,\"height\":79.12581954417733,\"tabOrder\":6002}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Produtos.Marca\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Produtos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Marca\"},\"Name\":\"Produtos.Marca\",\"NativeReferenceName\":\"Marca\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "config": "{\"name\":\"d5ff9fcce0193c38acdf\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1137.153605015674,\"y\":23.272727272727273,\"z\":8000,\"width\":135.62382445141066,\"height\":88.27586206896552,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Produtos.Marca\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Produtos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Marca\"},\"Name\":\"Produtos.Marca\",\"NativeReferenceName\":\"Marca\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[]",
-          "height": 79.13,
-          "width": 164.65,
-          "x": 1069.00,
-          "y": 295.32,
-          "z": 6002.00
+          "height": 88.28,
+          "width": 135.62,
+          "x": 1137.15,
+          "y": 23.27,
+          "z": 8000.00
         },
         {
-          "config": "{\"name\":\"e3831ace279409ea7363\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1068.748890860692,\"y\":403.19432120674355,\"z\":6003,\"width\":165.25288376220053,\"height\":156.73469387755102,\"tabOrder\":6003}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Vendas.Data de compra\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Data de compra\"},\"Name\":\"Vendas.Data de compra\",\"NativeReferenceName\":\"Data de compra\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Data de compra\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2020-12-19T00:00:00'\"}}},\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2022-12-31T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Where\":[{\"Condition\":{\"And\":{\"Left\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Data de compra\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2020-12-19T00:00:00'\"}}}},\"Right\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Data de compra\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2023-01-01T00:00:00'\"}}}}}}}]}}}}]}}}",
+          "config": "{\"name\":\"e3831ace279409ea7363\",\"layouts\":[{\"id\":0,\"position\":{\"x\":910.846394984326,\"y\":23.272727272727273,\"z\":9000,\"width\":226.30721003134795,\"height\":94.69592476489028,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Vendas.Data de compra\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Data de compra\"},\"Name\":\"Vendas.Data de compra\",\"NativeReferenceName\":\"Data de compra\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Data de compra\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"date\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"slider\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":7,\"Percent\":0.6}}}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[]",
-          "height": 156.73,
-          "width": 165.25,
-          "x": 1068.75,
-          "y": 403.19,
-          "z": 6003.00
+          "height": 94.70,
+          "width": 226.31,
+          "x": 910.85,
+          "y": 23.27,
+          "z": 9000.00
         }
       ],
       "width": 1280.00
