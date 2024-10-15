@@ -12,7 +12,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"olist_orders_dataset\",\"olist_itens_pedidos\"]"
+        "value": "[\"olist_orders_dataset\",\"olist_itens_pedidos\",\"row\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -733,6 +733,103 @@
           }
         ],
         "showAsVariationsOnly": true
+      },
+      {
+        "name": "row",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2c27f1f4-a0a3-4786-8eb8-0205844df499",
+            "sourceColumn": "order_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "payment_installments",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "fab0045a-c5e7-4393-801e-2b24aebb43ff",
+            "sourceColumn": "payment_installments",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "payment_sequential",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e60e3b83-8fd8-48d5-b3b7-02408e48a740",
+            "sourceColumn": "payment_sequential",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "payment_value",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "1808db3c-3390-4227-9196-8be71de5255e",
+            "sourceColumn": "payment_value",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "payment_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "19d40bef-aa94-46ab-9537-5af7d0b3cd05",
+            "sourceColumn": "payment_type",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "c7815504-8cfa-40fc-9ede-ce7f4dc0f97b",
+        "partitions": [
+          {
+            "name": "row",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Xml.Tables(File.Contents(\"C:\\Users\\adminrandom\\Estudos\\Alura\\formacao_powerbi\\PowerBI-PowerQuery-Aula1-Material\\olist_pagamentos.xml\")),",
+                "    Table0 = Source{0}[Table],",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Table0,{{\"order_id\", type text}, {\"payment_installments\", Int64.Type}, {\"payment_sequential\", Int64.Type}, {\"payment_value\", Int64.Type}, {\"payment_type\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }
