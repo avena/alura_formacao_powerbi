@@ -46,6 +46,19 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 72
+          },
+          "nodeIndex": "olist_produtos",
+          "nodeLineageTag": "792faa27-deb3-4732-b9f3-6f0c16af21b1",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
