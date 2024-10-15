@@ -12,7 +12,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"olist_orders_dataset\",\"olist_itens_pedidos\",\"row\",\"olist_produtos\",\"tradução\",\"caminhoPasta\"]"
+        "value": "[\"olist_pedidos\",\"olist_itens_pedidos\",\"olist_pagamentos\",\"olist_produtos\",\"tradução\",\"caminhoPasta\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -60,7 +60,7 @@
       {
         "name": "2fe072ac-7251-427a-8081-f90ccefab15b",
         "fromColumn": "order_purchase_timestamp",
-        "fromTable": "olist_orders_dataset",
+        "fromTable": "olist_pedidos",
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_ea614344-93b9-4019-b799-1a9fe8bf19af"
@@ -68,7 +68,7 @@
       {
         "name": "d0a8873a-2d74-4fc2-aec9-27c855a176de",
         "fromColumn": "order_approved_at",
-        "fromTable": "olist_orders_dataset",
+        "fromTable": "olist_pedidos",
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_c1bf1228-d4da-432e-98a3-b10dbb3e1659"
@@ -76,7 +76,7 @@
       {
         "name": "24a1b94d-d6c9-460f-b5f7-f98e24b10d5b",
         "fromColumn": "order_delivered_carrier_date",
-        "fromTable": "olist_orders_dataset",
+        "fromTable": "olist_pedidos",
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_fdb8676f-1398-4c30-a8a4-6454300ef491"
@@ -84,7 +84,7 @@
       {
         "name": "95ac1197-5532-47cc-a1fa-e565a622d435",
         "fromColumn": "order_delivered_customer_date",
-        "fromTable": "olist_orders_dataset",
+        "fromTable": "olist_pedidos",
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_fc241774-05a0-4ba7-901c-465b1a48f657"
@@ -92,7 +92,7 @@
       {
         "name": "7ac2b323-4be8-4aae-8f07-32e0624a2143",
         "fromColumn": "order_estimated_delivery_date",
-        "fromTable": "olist_orders_dataset",
+        "fromTable": "olist_pedidos",
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_7f1a3fc0-103b-42ce-85c9-15d7231546b6"
@@ -101,22 +101,22 @@
         "name": "AutoDetected_a4ebc48f-6e07-4b9b-bfb5-86f51c95dcd0",
         "fromColumn": "order_id",
         "fromTable": "olist_itens_pedidos",
-        "toColumn": "order_id",
-        "toTable": "olist_orders_dataset"
+        "toColumn": "ID_pedido",
+        "toTable": "olist_pedidos"
       },
       {
         "name": "AutoDetected_12a71ba1-2fca-4798-90ae-c65ad7a07d04",
         "crossFilteringBehavior": "bothDirections",
         "fromCardinality": "one",
-        "fromColumn": "order_id",
-        "fromTable": "row",
-        "toColumn": "order_id",
-        "toTable": "olist_orders_dataset"
+        "fromColumn": "ID_pedido",
+        "fromTable": "olist_pagamentos",
+        "toColumn": "ID_pedido",
+        "toTable": "olist_pedidos"
       },
       {
         "name": "AutoDetected_68c5ce00-5d91-4601-a6d9-3d7751f9bb30",
         "fromColumn": "Português ",
-        "fromTable": "olist_orders_dataset",
+        "fromTable": "olist_pedidos",
         "toColumn": "Português ",
         "toTable": "tradução"
       },
@@ -131,7 +131,7 @@
     "sourceQueryCulture": "pt-BR",
     "tables": [
       {
-        "name": "olist_orders_dataset",
+        "name": "olist_pedidos",
         "annotations": [
           {
             "name": "PBI_ResultType",
@@ -144,7 +144,7 @@
         ],
         "columns": [
           {
-            "name": "order_id",
+            "name": "ID_pedido",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -153,20 +153,7 @@
             ],
             "dataType": "string",
             "lineageTag": "79a04c7f-3f83-4c96-9549-e5542d3199f1",
-            "sourceColumn": "order_id",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "customer_id",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "da76d461-f651-4366-945c-0d5519fd5bec",
-            "sourceColumn": "customer_id",
+            "sourceColumn": "ID_pedido",
             "summarizeBy": "none"
           },
           {
@@ -324,7 +311,7 @@
         "lineageTag": "0dc0ae29-03b4-4b97-9644-46afd82703c3",
         "partitions": [
           {
-            "name": "olist_orders_dataset",
+            "name": "olist_pedidos",
             "mode": "import",
             "source": {
               "expression": [
@@ -338,9 +325,11 @@
                 "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers1\",{{\"order_id\", type text}, {\"customer_id\", type text}, {\"order_status\", type text}, {\"order_purchase_timestamp\", type datetime}, {\"order_approved_at\", type datetime}, {\"order_delivered_carrier_date\", type datetime}, {\"order_delivered_customer_date\", type datetime}, {\"order_estimated_delivery_date\", type datetime}}),",
                 "    #\"Extracted Text After Delimiter\" = Table.TransformColumns(#\"Changed Type1\", {{\"order_status\", each Text.AfterDelimiter(_, \"#\"), type text}}),",
                 "    #\"Merged Queries\" = Table.NestedJoin(#\"Extracted Text After Delimiter\", {\"order_status\"}, tradução, {\"Inglês\"}, \"tradução\", JoinKind.LeftOuter),",
-                "    #\"Expanded tradução\" = Table.ExpandTableColumn(#\"Merged Queries\", \"tradução\", {\"Português \"}, {\"Português \"})",
+                "    #\"Expanded tradução\" = Table.ExpandTableColumn(#\"Merged Queries\", \"tradução\", {\"Português \"}, {\"Português \"}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Expanded tradução\",{{\"order_id\", \"ID_pedido\"}}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Renamed Columns\",{\"customer_id\"})",
                 "in",
-                "    #\"Expanded tradução\""
+                "    #\"Removed Columns\""
               ],
               "type": "m"
             }
@@ -684,7 +673,7 @@
         ]
       },
       {
-        "name": "row",
+        "name": "olist_pagamentos",
         "annotations": [
           {
             "name": "PBI_ResultType",
@@ -697,7 +686,7 @@
         ],
         "columns": [
           {
-            "name": "order_id",
+            "name": "ID_pedido",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -706,7 +695,7 @@
             ],
             "dataType": "string",
             "lineageTag": "2c27f1f4-a0a3-4786-8eb8-0205844df499",
-            "sourceColumn": "order_id",
+            "sourceColumn": "ID_pedido",
             "summarizeBy": "none"
           },
           {
@@ -781,7 +770,7 @@
         "lineageTag": "c7815504-8cfa-40fc-9ede-ce7f4dc0f97b",
         "partitions": [
           {
-            "name": "row",
+            "name": "olist_pagamentos",
             "mode": "import",
             "source": {
               "expression": [
@@ -789,9 +778,10 @@
                 "    Source = Xml.Tables(File.Contents(caminhoPasta & \"olist_pagamentos.xml\")),",
                 "    Table0 = Source{0}[Table],",
                 "    #\"Changed Type\" = Table.TransformColumnTypes(Table0,{{\"order_id\", type text}, {\"payment_installments\", Int64.Type}, {\"payment_sequential\", Int64.Type}, {\"payment_value\", Int64.Type}, {\"payment_type\", type text}}),",
-                "    #\"Added Conditional Column\" = Table.AddColumn(#\"Changed Type\", \"Tipo de pagametno\", each if [payment_type] = \"#credit_card\" then \"Cartão de Credto\" else if [payment_type] = \"#boleto\" then \"Boleto\" else if [payment_type] = \"#voucher\" then \"Voucher\" else if [payment_type] = \"#debit_card\" then \"Cartão de débito\" else null, type text)",
+                "    #\"Added Conditional Column\" = Table.AddColumn(#\"Changed Type\", \"Tipo de pagametno\", each if [payment_type] = \"#credit_card\" then \"Cartão de Credto\" else if [payment_type] = \"#boleto\" then \"Boleto\" else if [payment_type] = \"#voucher\" then \"Voucher\" else if [payment_type] = \"#debit_card\" then \"Cartão de débito\" else null, type text),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Added Conditional Column\",{{\"order_id\", \"ID_pedido\"}})",
                 "in",
-                "    #\"Added Conditional Column\""
+                "    #\"Renamed Columns\""
               ],
               "type": "m"
             }
@@ -836,104 +826,6 @@
             "lineageTag": "da9188d2-60af-41a5-b4bc-e66b16b0213c",
             "sourceColumn": "product_category_name",
             "summarizeBy": "none"
-          },
-          {
-            "name": "product_name_lenght",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "b8bd58a2-bb6f-4e9c-8eca-fae6df4642cb",
-            "sourceColumn": "product_name_lenght",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "product_description_lenght",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "2efb4935-9f1e-4909-926b-e3e0f3c6fc45",
-            "sourceColumn": "product_description_lenght",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "product_photos_qty",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "6b4524f7-df93-47d9-bf41-f0c2fc236e5c",
-            "sourceColumn": "product_photos_qty",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "product_weight_g",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "9dcc8623-1a18-4df6-89ef-0f1434042c39",
-            "sourceColumn": "product_weight_g",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "product_length_cm",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "d6ff6b25-ee80-4d4a-8033-ac0069073791",
-            "sourceColumn": "product_length_cm",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "product_height_cm",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "cea8b34f-62fe-4e66-ab83-2e16ba7f224e",
-            "sourceColumn": "product_height_cm",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "product_width_cm",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "c689e8d5-a6cd-4c5e-a3c7-6904e12f8aff",
-            "sourceColumn": "product_width_cm",
-            "summarizeBy": "none"
           }
         ],
         "lineageTag": "792faa27-deb3-4732-b9f3-6f0c16af21b1",
@@ -951,9 +843,10 @@
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Transposed Table\", [PromoteAllScalars=true]),",
                 "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"product_id\", type text}, {\"product_category_name\", type text}, {\"product_name_lenght\", Int64.Type}, {\"product_description_lenght\", Int64.Type}, {\"product_photos_qty\", Int64.Type}, {\"product_weight_g\", Int64.Type}, {\"product_length_cm\", Int64.Type}, {\"product_height_cm\", Int64.Type}, {\"product_width_cm\", Int64.Type}}),",
                 "    #\"Replaced Value\" = Table.ReplaceValue(#\"Changed Type\",\"_\",\" \",Replacer.ReplaceText,{\"product_category_name\"}),",
-                "    #\"Capitalized Each Word\" = Table.TransformColumns(#\"Replaced Value\",{{\"product_category_name\", Text.Proper, type text}})",
+                "    #\"Capitalized Each Word\" = Table.TransformColumns(#\"Replaced Value\",{{\"product_category_name\", Text.Proper, type text}}),",
+                "    #\"Removed Other Columns\" = Table.SelectColumns(#\"Capitalized Each Word\",{\"product_id\", \"product_category_name\"})",
                 "in",
-                "    #\"Capitalized Each Word\""
+                "    #\"Removed Other Columns\""
               ],
               "type": "m"
             }
@@ -1159,7 +1052,7 @@
             "name": "LocalDateTable_ea614344-93b9-4019-b799-1a9fe8bf19af",
             "mode": "import",
             "source": {
-              "expression": "Calendar(Date(Year(MIN('olist_orders_dataset'[order_purchase_timestamp])), 1, 1), Date(Year(MAX('olist_orders_dataset'[order_purchase_timestamp])), 12, 31))",
+              "expression": "Calendar(Date(Year(MIN('olist_pedidos'[order_purchase_timestamp])), 1, 1), Date(Year(MAX('olist_pedidos'[order_purchase_timestamp])), 12, 31))",
               "type": "calculated"
             }
           }
@@ -1365,7 +1258,7 @@
             "name": "LocalDateTable_c1bf1228-d4da-432e-98a3-b10dbb3e1659",
             "mode": "import",
             "source": {
-              "expression": "Calendar(Date(Year(MIN('olist_orders_dataset'[order_approved_at])), 1, 1), Date(Year(MAX('olist_orders_dataset'[order_approved_at])), 12, 31))",
+              "expression": "Calendar(Date(Year(MIN('olist_pedidos'[order_approved_at])), 1, 1), Date(Year(MAX('olist_pedidos'[order_approved_at])), 12, 31))",
               "type": "calculated"
             }
           }
@@ -1571,7 +1464,7 @@
             "name": "LocalDateTable_fdb8676f-1398-4c30-a8a4-6454300ef491",
             "mode": "import",
             "source": {
-              "expression": "Calendar(Date(Year(MIN('olist_orders_dataset'[order_delivered_carrier_date])), 1, 1), Date(Year(MAX('olist_orders_dataset'[order_delivered_carrier_date])), 12, 31))",
+              "expression": "Calendar(Date(Year(MIN('olist_pedidos'[order_delivered_carrier_date])), 1, 1), Date(Year(MAX('olist_pedidos'[order_delivered_carrier_date])), 12, 31))",
               "type": "calculated"
             }
           }
@@ -1777,7 +1670,7 @@
             "name": "LocalDateTable_fc241774-05a0-4ba7-901c-465b1a48f657",
             "mode": "import",
             "source": {
-              "expression": "Calendar(Date(Year(MIN('olist_orders_dataset'[order_delivered_customer_date])), 1, 1), Date(Year(MAX('olist_orders_dataset'[order_delivered_customer_date])), 12, 31))",
+              "expression": "Calendar(Date(Year(MIN('olist_pedidos'[order_delivered_customer_date])), 1, 1), Date(Year(MAX('olist_pedidos'[order_delivered_customer_date])), 12, 31))",
               "type": "calculated"
             }
           }
@@ -1983,7 +1876,7 @@
             "name": "LocalDateTable_7f1a3fc0-103b-42ce-85c9-15d7231546b6",
             "mode": "import",
             "source": {
-              "expression": "Calendar(Date(Year(MIN('olist_orders_dataset'[order_estimated_delivery_date])), 1, 1), Date(Year(MAX('olist_orders_dataset'[order_estimated_delivery_date])), 12, 31))",
+              "expression": "Calendar(Date(Year(MIN('olist_pedidos'[order_estimated_delivery_date])), 1, 1), Date(Year(MAX('olist_pedidos'[order_estimated_delivery_date])), 12, 31))",
               "type": "calculated"
             }
           }
