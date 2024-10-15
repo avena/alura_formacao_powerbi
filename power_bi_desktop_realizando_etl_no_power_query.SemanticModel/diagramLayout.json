@@ -59,6 +59,19 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 72
+          },
+          "nodeIndex": "tradução",
+          "nodeLineageTag": "1ee77e9f-2c0a-4090-8858-4e0ac284111b",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

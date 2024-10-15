@@ -12,7 +12,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"olist_orders_dataset\",\"olist_itens_pedidos\",\"row\",\"olist_produtos\"]"
+        "value": "[\"olist_orders_dataset\",\"olist_itens_pedidos\",\"row\",\"olist_produtos\",\"tradução\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -101,6 +101,13 @@
         "fromTable": "row",
         "toColumn": "order_id",
         "toTable": "olist_orders_dataset"
+      },
+      {
+        "name": "AutoDetected_68c5ce00-5d91-4601-a6d9-3d7751f9bb30",
+        "fromColumn": "Português ",
+        "fromTable": "olist_orders_dataset",
+        "toColumn": "Português ",
+        "toTable": "tradução"
       }
     ],
     "sourceQueryCulture": "pt-BR",
@@ -281,6 +288,19 @@
                 "relationship": "7ac2b323-4be8-4aae-8f07-32e0624a2143"
               }
             ]
+          },
+          {
+            "name": "Português ",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "399826b7-2fe1-4730-bfe2-b2129cccf8d7",
+            "sourceColumn": "Português ",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "0dc0ae29-03b4-4b97-9644-46afd82703c3",
@@ -298,9 +318,11 @@
                 "    #\"Removed Top Rows\" = Table.Skip(#\"Changed Type\",1),",
                 "    #\"Promoted Headers1\" = Table.PromoteHeaders(#\"Removed Top Rows\", [PromoteAllScalars=true]),",
                 "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers1\",{{\"order_id\", type text}, {\"customer_id\", type text}, {\"order_status\", type text}, {\"order_purchase_timestamp\", type datetime}, {\"order_approved_at\", type datetime}, {\"order_delivered_carrier_date\", type datetime}, {\"order_delivered_customer_date\", type datetime}, {\"order_estimated_delivery_date\", type datetime}}),",
-                "    #\"Extracted Text After Delimiter\" = Table.TransformColumns(#\"Changed Type1\", {{\"order_status\", each Text.AfterDelimiter(_, \"#\"), type text}})",
+                "    #\"Extracted Text After Delimiter\" = Table.TransformColumns(#\"Changed Type1\", {{\"order_status\", each Text.AfterDelimiter(_, \"#\"), type text}}),",
+                "    #\"Merged Queries\" = Table.NestedJoin(#\"Extracted Text After Delimiter\", {\"order_status\"}, tradução, {\"Inglês\"}, \"tradução\", JoinKind.LeftOuter),",
+                "    #\"Expanded tradução\" = Table.ExpandTableColumn(#\"Merged Queries\", \"tradução\", {\"Português \"}, {\"Português \"})",
                 "in",
-                "    #\"Extracted Text After Delimiter\""
+                "    #\"Expanded tradução\""
               ],
               "type": "m"
             }
@@ -2041,6 +2063,66 @@
           }
         ],
         "showAsVariationsOnly": true
+      },
+      {
+        "name": "tradução",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Inglês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b78bcbc3-dc7f-4343-a592-a7c3e699fefb",
+            "sourceColumn": "Inglês",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Português ",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "230fad98-7458-4d60-adac-8dab78473e14",
+            "sourceColumn": "Português ",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "1ee77e9f-2c0a-4090-8858-4e0ac284111b",
+        "partitions": [
+          {
+            "name": "tradução",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\adminrandom\\Estudos\\Alura\\formacao_powerbi\\PowerBI-PowerQuery-Aula1-Material\\tradução.csv\"),[Delimiter=\",\", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Column1\", type text}, {\"Column2\", type text}}),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Changed Type\", [PromoteAllScalars=true]),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Inglês\", type text}, {\"Português \", type text}})",
+                "in",
+                "    #\"Changed Type1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }
