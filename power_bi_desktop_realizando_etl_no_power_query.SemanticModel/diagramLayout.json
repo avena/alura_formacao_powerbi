@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 981,
-            "y": 55
+            "x": 1061,
+            "y": 61
           },
           "nodeIndex": "olist_itens_pedidos",
           "nodeLineageTag": "d6ae2747-856d-4b28-a9f0-97ee53eae4f6",
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 1450,
-            "y": 127
+            "x": 1447,
+            "y": 276
           },
           "nodeIndex": "olist_produtos",
           "nodeLineageTag": "792faa27-deb3-4732-b9f3-6f0c16af21b1",
@@ -36,8 +36,8 @@
         },
         {
           "location": {
-            "x": 404,
-            "y": 29
+            "x": 527,
+            "y": 51
           },
           "nodeIndex": "olist_pedidos",
           "nodeLineageTag": "0dc0ae29-03b4-4b97-9644-46afd82703c3",
@@ -49,8 +49,8 @@
         },
         {
           "location": {
-            "x": 390,
-            "y": 612
+            "x": 72,
+            "y": 87
           },
           "nodeIndex": "olist_pagamentos",
           "nodeLineageTag": "c7815504-8cfa-40fc-9ede-ce7f4dc0f97b",
