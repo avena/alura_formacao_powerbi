@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../power_bi_desktop_realizando_etl_no_power_query.SemanticModel"
+    },
+    "byConnection": null
+  }
+}
