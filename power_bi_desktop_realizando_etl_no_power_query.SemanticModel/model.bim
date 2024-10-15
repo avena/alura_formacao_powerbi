@@ -115,7 +115,7 @@
       },
       {
         "name": "AutoDetected_68c5ce00-5d91-4601-a6d9-3d7751f9bb30",
-        "fromColumn": "Português ",
+        "fromColumn": "Status",
         "fromTable": "olist_pedidos",
         "toColumn": "Português ",
         "toTable": "tradução"
@@ -295,7 +295,7 @@
             ]
           },
           {
-            "name": "Português ",
+            "name": "Status",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -304,7 +304,7 @@
             ],
             "dataType": "string",
             "lineageTag": "399826b7-2fe1-4730-bfe2-b2129cccf8d7",
-            "sourceColumn": "Português ",
+            "sourceColumn": "Status",
             "summarizeBy": "none"
           }
         ],
@@ -319,14 +319,14 @@
                 "    Source = Excel.Workbook(File.Contents(caminhoPasta & \"olist_pedidos.xlsx\"), null, true),",
                 "    olist_orders_dataset_Sheet = Source{[Item=\"olist_orders_dataset\",Kind=\"Sheet\"]}[Data],",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(olist_orders_dataset_Sheet, [PromoteAllScalars=true]),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"orders list\", type text}, {\"Column2\", type text}, {\"Column3\", type text}, {\"Column4\", type any}, {\"Column5\", type any}, {\"Column6\", type any}, {\"Column7\", type any}, {\"Column8\", type any}}),",
-                "    #\"Removed Top Rows\" = Table.Skip(#\"Changed Type\",1),",
+                "    #\"Removed Top Rows\" = Table.Skip(#\"Promoted Headers\",1),",
                 "    #\"Promoted Headers1\" = Table.PromoteHeaders(#\"Removed Top Rows\", [PromoteAllScalars=true]),",
                 "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers1\",{{\"order_id\", type text}, {\"customer_id\", type text}, {\"order_status\", type text}, {\"order_purchase_timestamp\", type datetime}, {\"order_approved_at\", type datetime}, {\"order_delivered_carrier_date\", type datetime}, {\"order_delivered_customer_date\", type datetime}, {\"order_estimated_delivery_date\", type datetime}}),",
                 "    #\"Extracted Text After Delimiter\" = Table.TransformColumns(#\"Changed Type1\", {{\"order_status\", each Text.AfterDelimiter(_, \"#\"), type text}}),",
                 "    #\"Merged Queries\" = Table.NestedJoin(#\"Extracted Text After Delimiter\", {\"order_status\"}, tradução, {\"Inglês\"}, \"tradução\", JoinKind.LeftOuter),",
                 "    #\"Expanded tradução\" = Table.ExpandTableColumn(#\"Merged Queries\", \"tradução\", {\"Português \"}, {\"Português \"}),",
-                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Expanded tradução\",{{\"order_id\", \"ID_pedido\"}}),",
+                "    // Renomeção de Colunas",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Expanded tradução\",{{\"order_id\", \"ID_pedido\"}, {\"Português \", \"Status\"}}),",
                 "    #\"Removed Columns\" = Table.RemoveColumns(#\"Renamed Columns\",{\"customer_id\"})",
                 "in",
                 "    #\"Removed Columns\""
