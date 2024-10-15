@@ -1,5 +1,5 @@
 {
-  "config": "{\"version\":\"5.57\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU08\",\"version\":\"5.58\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "config": "{\"version\":\"5.57\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU08\",\"version\":\"5.58\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
   "layoutOptimization": 0,
   "resourcePackages": [
     {
@@ -25,7 +25,17 @@
       "filters": "[]",
       "height": 720.00,
       "name": "c6d830e3435d8aca1d4e",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"edd24d3e821a2504541a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":14.718685831622176,\"y\":23.129363449691994,\"z\":0,\"width\":288.0657084188912,\"height\":197.1252566735113,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"olist_pagamentos.Tipo de pagametno\"},{\"queryRef\":\"CountNonNull(olist_itens_pedidos.order_id)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o1\",\"Entity\":\"olist_itens_pedidos\",\"Type\":0},{\"Name\":\"o\",\"Entity\":\"olist_pagamentos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Tipo de pagametno\"},\"Name\":\"olist_pagamentos.Tipo de pagametno\",\"NativeReferenceName\":\"Tipo de pagametno\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o1\"}},\"Property\":\"order_id\"}},\"Function\":5},\"Name\":\"CountNonNull(olist_itens_pedidos.order_id)\",\"NativeReferenceName\":\"Count of order_id\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o1\"}},\"Property\":\"order_id\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 197.13,
+          "width": 288.07,
+          "x": 14.72,
+          "y": 23.13,
+          "z": 0.00
+        }
+      ],
       "width": 1280.00
     }
   ]
