@@ -960,6 +960,19 @@
             "lineageTag": "19d40bef-aa94-46ab-9537-5af7d0b3cd05",
             "sourceColumn": "payment_type",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Tipo de pagametno",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "047b6b05-d59b-42a7-82f2-5a373192ae97",
+            "sourceColumn": "Tipo de pagametno",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "c7815504-8cfa-40fc-9ede-ce7f4dc0f97b",
@@ -973,12 +986,9 @@
                 "    Source = Xml.Tables(File.Contents(\"C:\\Users\\adminrandom\\Estudos\\Alura\\formacao_powerbi\\PowerBI-PowerQuery-Aula1-Material\\olist_pagamentos.xml\")),",
                 "    Table0 = Source{0}[Table],",
                 "    #\"Changed Type\" = Table.TransformColumnTypes(Table0,{{\"order_id\", type text}, {\"payment_installments\", Int64.Type}, {\"payment_sequential\", Int64.Type}, {\"payment_value\", Int64.Type}, {\"payment_type\", type text}}),",
-                "    #\"Replaced Value\" = Table.ReplaceValue(#\"Changed Type\",\"#credit_card\",\"Cartão de Credito\",Replacer.ReplaceText,{\"payment_type\"}),",
-                "    #\"Replaced Value1\" = Table.ReplaceValue(#\"Replaced Value\",\"#boleto\",\"Boleto\",Replacer.ReplaceText,{\"payment_type\"}),",
-                "    #\"Replaced Value2\" = Table.ReplaceValue(#\"Replaced Value1\",\"#voucher\",\"Voucher\",Replacer.ReplaceText,{\"payment_type\"}),",
-                "    #\"Replaced Value3\" = Table.ReplaceValue(#\"Replaced Value2\",\"#debit_card\",\"Cartão de débito\",Replacer.ReplaceText,{\"payment_type\"})",
+                "    #\"Added Conditional Column\" = Table.AddColumn(#\"Changed Type\", \"Tipo de pagametno\", each if [payment_type] = \"#credit_card\" then \"Cartão de Credto\" else if [payment_type] = \"#boleto\" then \"Boleto\" else if [payment_type] = \"#voucher\" then \"Voucher\" else if [payment_type] = \"#debit_card\" then \"Cartão de débito\" else null, type text)",
                 "in",
-                "    #\"Replaced Value3\""
+                "    #\"Added Conditional Column\""
               ],
               "type": "m"
             }
