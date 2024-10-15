@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 284,
-            "y": 12
+            "x": 981,
+            "y": 55
           },
           "nodeIndex": "olist_itens_pedidos",
           "nodeLineageTag": "d6ae2747-856d-4b28-a9f0-97ee53eae4f6",
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 852,
-            "y": 72
+            "x": 1450,
+            "y": 127
           },
           "nodeIndex": "olist_produtos",
           "nodeLineageTag": "792faa27-deb3-4732-b9f3-6f0c16af21b1",
@@ -36,23 +36,11 @@
         },
         {
           "location": {
-            "x": 1136,
-            "y": 72
-          },
-          "nodeIndex": "tradução",
-          "nodeLineageTag": "1ee77e9f-2c0a-4090-8858-4e0ac284111b",
-          "size": {
-            "height": 128,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 0,
-            "y": 0
+            "x": 404,
+            "y": 29
           },
           "nodeIndex": "olist_pedidos",
+          "nodeLineageTag": "0dc0ae29-03b4-4b97-9644-46afd82703c3",
           "size": {
             "height": 272,
             "width": 234
@@ -61,10 +49,11 @@
         },
         {
           "location": {
-            "x": 568,
-            "y": 36
+            "x": 390,
+            "y": 612
           },
           "nodeIndex": "olist_pagamentos",
+          "nodeLineageTag": "c7815504-8cfa-40fc-9ede-ce7f4dc0f97b",
           "size": {
             "height": 200,
             "width": 234

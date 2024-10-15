@@ -54,6 +54,30 @@
         "expression": "\"C:\\Users\\adminrandom\\Estudos\\Alura\\formacao_powerbi\\PowerBI-PowerQuery-Aula1-Material\\\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
         "kind": "m",
         "lineageTag": "25818947-a009-4b4d-9118-01fa8df97d99"
+      },
+      {
+        "name": "tradução",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Source = Csv.Document(File.Contents(caminhoPasta & \"tradução.csv\"),[Delimiter=\",\", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+          "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Column1\", type text}, {\"Column2\", type text}}),",
+          "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Changed Type\", [PromoteAllScalars=true]),",
+          "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Inglês\", type text}, {\"Português \", type text}})",
+          "in",
+          "    #\"Changed Type1\""
+        ],
+        "kind": "m",
+        "lineageTag": "22c28878-2859-4e4b-8eaa-1e0176662e44"
       }
     ],
     "relationships": [
@@ -112,13 +136,6 @@
         "fromTable": "olist_pagamentos",
         "toColumn": "ID_pedido",
         "toTable": "olist_pedidos"
-      },
-      {
-        "name": "AutoDetected_68c5ce00-5d91-4601-a6d9-3d7751f9bb30",
-        "fromColumn": "Status",
-        "fromTable": "olist_pedidos",
-        "toColumn": "Português ",
-        "toTable": "tradução"
       },
       {
         "name": "AutoDetected_6e698a07-1e51-4cd8-98a9-03ad99697e11",
@@ -1882,66 +1899,6 @@
           }
         ],
         "showAsVariationsOnly": true
-      },
-      {
-        "name": "tradução",
-        "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "columns": [
-          {
-            "name": "Inglês",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "b78bcbc3-dc7f-4343-a592-a7c3e699fefb",
-            "sourceColumn": "Inglês",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Português ",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "230fad98-7458-4d60-adac-8dab78473e14",
-            "sourceColumn": "Português ",
-            "summarizeBy": "none"
-          }
-        ],
-        "lineageTag": "1ee77e9f-2c0a-4090-8858-4e0ac284111b",
-        "partitions": [
-          {
-            "name": "tradução",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Source = Csv.Document(File.Contents(caminhoPasta & \"tradução.csv\"),[Delimiter=\",\", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Column1\", type text}, {\"Column2\", type text}}),",
-                "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Changed Type\", [PromoteAllScalars=true]),",
-                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Inglês\", type text}, {\"Português \", type text}})",
-                "in",
-                "    #\"Changed Type1\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
       }
     ]
   }
