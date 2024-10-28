@@ -170,60 +170,6 @@
             "lineageTag": "36c12f0c-13c9-43ca-a968-bf6b315f31cf",
             "summarizeBy": "none",
             "type": "calculated"
-          },
-          {
-            "name": "Total Vendas",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "expression": "Vendas[Quantidade] * Vendas[Preco Calculado]",
-            "isDataTypeInferred": true,
-            "lineageTag": "ad9b202c-e0ed-4399-aa16-7070d689cc94",
-            "summarizeBy": "sum",
-            "type": "calculated"
-          },
-          {
-            "name": "Margem",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "expression": "Vendas[Quantidade] * (Vendas[Preco Calculado] - Vendas[Custo Calculado])",
-            "isDataTypeInferred": true,
-            "lineageTag": "5a77ac4b-f9a8-4ae2-ae5a-186f1cc15505",
-            "summarizeBy": "sum",
-            "type": "calculated"
-          },
-          {
-            "name": "Margem %",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "double",
-            "expression": "DIVIDE(Vendas[Margem], Vendas[Total Vendas], 0)",
-            "formatString": "0.00%;-0.00%;0.00%",
-            "isDataTypeInferred": true,
-            "lineageTag": "8009f985-1d8b-44b0-bf0d-9fa17ea2599a",
-            "summarizeBy": "sum",
-            "type": "calculated"
           }
         ],
         "lineageTag": "6dca8fcd-f5e0-4d2f-acf2-8b719577778e",
@@ -1014,9 +960,46 @@
         "measures": [
           {
             "name": "Margem %",
-            "expression": "DIVIDE(sum(Vendas[Margem]),sum(Vendas[Total Vendas]), 0)",
+            "displayFolder": "Margem",
+            "expression": "DIVIDE([Margem],[Vendas Total], 0)",
             "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "b56ffe55-ec78-4543-a470-732b9b3ba0cb"
+          },
+          {
+            "name": "Vendas Total",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Vendas",
+            "expression": [
+              "",
+              "SUMX(",
+              "    Vendas,",
+              "    Vendas[Quantidade] * Vendas[Preco Calculado]",
+              ")"
+            ],
+            "lineageTag": "f6544b97-f8e7-422c-8b8d-4441b02157bc"
+          },
+          {
+            "name": "Margem",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "Margem",
+            "expression": [
+              "",
+              "SUMX(",
+              "    Vendas,",
+              "    Vendas[Quantidade] * (Vendas[Preco Calculado] - Vendas[Custo Calculado])",
+              ")"
+            ],
+            "lineageTag": "945b9129-d07e-4162-b195-61c2f8e7045d"
           }
         ],
         "partitions": [

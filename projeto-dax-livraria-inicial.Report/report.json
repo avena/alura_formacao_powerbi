@@ -27,7 +27,7 @@
       "name": "1da454eab2765f7faf59",
       "visualContainers": [
         {
-          "config": "{\"name\":\"a1dc7ed1b1a40389543d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1254.763406940063,\"height\":719.7476340694006,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Produtos.Nome do produto\"},{\"queryRef\":\"Sum(Vendas.Total Vendas)\"},{\"queryRef\":\"Sum(Vendas.Margem)\"},{\"queryRef\":\"Medidas.Margem %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Produtos\",\"Type\":0},{\"Name\":\"v\",\"Entity\":\"Vendas\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Nome do produto\"},\"Name\":\"Produtos.Nome do produto\",\"NativeReferenceName\":\"Nome do produto\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Total Vendas\"}},\"Function\":0},\"Name\":\"Sum(Vendas.Total Vendas)\",\"NativeReferenceName\":\"Sum of Total Vendas\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Margem\"}},\"Function\":0},\"Name\":\"Sum(Vendas.Margem)\",\"NativeReferenceName\":\"Sum of Margem\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem %\"},\"Name\":\"Medidas.Margem %\",\"NativeReferenceName\":\"Margem %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"v\"}},\"Property\":\"Total Vendas\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"values\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}],\"columnWidth\":[{\"properties\":{},\"selector\":{\"metadata\":\"Produtos.Nome do produto\"}}]}}}",
+          "config": "{\"name\":\"a1dc7ed1b1a40389543d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1254.763406940063,\"height\":719.7476340694006,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Produtos.Nome do produto\"},{\"queryRef\":\"Medidas.Vendas Total\"},{\"queryRef\":\"Medidas.Margem %\"},{\"queryRef\":\"Medidas.Margem\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Produtos\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Nome do produto\"},\"Name\":\"Produtos.Nome do produto\",\"NativeReferenceName\":\"Nome do produto\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem %\"},\"Name\":\"Medidas.Margem %\",\"NativeReferenceName\":\"Margem %\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem\"},\"Name\":\"Medidas.Margem\",\"NativeReferenceName\":\"Margem\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Vendas Total\"},\"Name\":\"Medidas.Vendas Total\",\"NativeReferenceName\":\"Vendas Total\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"values\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}],\"columnWidth\":[{\"properties\":{},\"selector\":{\"metadata\":\"Produtos.Nome do produto\"}}]}}}",
           "filters": "[]",
           "height": 719.75,
           "width": 1254.76,
@@ -48,6 +48,15 @@
       "ordinal": 1,
       "visualContainers": [
         {
+          "config": "{\"name\":\"63200ba1b850c55b2e89\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.094637223974763,\"y\":339.17981072555204,\"z\":1,\"width\":279.62145110410097,\"height\":280.63091482649844,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Medidas.Vendas Total\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Vendas Total\"},\"Name\":\"Medidas.Vendas Total\",\"NativeReferenceName\":\"Vendas Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Vendas Total\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 280.63,
+          "width": 279.62,
+          "x": 10.09,
+          "y": 339.18,
+          "z": 1.00
+        },
+        {
           "config": "{\"name\":\"a5efbb444c9750d05e5d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":0,\"width\":280,\"height\":280,\"z\":0,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Medidas.Margem %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem %\"},\"Name\":\"Medidas.Margem %\",\"NativeReferenceName\":\"Margem %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem %\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
           "filters": "[]",
           "height": 280.00,
@@ -55,6 +64,15 @@
           "x": 10.00,
           "y": 0.00,
           "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"c0e6c993e6e10950e5eb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":300,\"y\":0,\"width\":280,\"height\":280,\"z\":2,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Medidas.Margem\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem\"},\"Name\":\"Medidas.Margem\",\"NativeReferenceName\":\"Margem\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Margem\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 280.00,
+          "width": 280.00,
+          "x": 300.00,
+          "y": 0.00,
+          "z": 2.00
         }
       ],
       "width": 1280.00
