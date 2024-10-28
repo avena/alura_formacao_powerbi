@@ -1,0 +1,1035 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Vendas\",\"InfoVendas\",\"Produtos\",\"Vendedores\",\"Fonte Dados\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.136.1478.0 (24.09)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "pt-BR",
+    "cultures": [
+      {
+        "name": "pt-BR",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "Fonte Dados",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Text"
+          }
+        ],
+        "description": "Parâmetro para adicionar o caminho do diretório onde está o arquivo de dados.",
+        "expression": "\"C:\\Users\\Marcelo Cruz\\Desktop\\\" meta [IsParameterQuery=true, Type=\"Any\", IsParameterQueryRequired=true]",
+        "kind": "m",
+        "lineageTag": "17e01f30-23ac-464c-adb8-fad6eeab271b"
+      }
+    ],
+    "relationships": [
+      {
+        "name": "AutoDetected_8bb17c04-9a70-4362-a454-0e0d590a894d",
+        "fromColumn": "Numero",
+        "fromTable": "Vendas",
+        "toColumn": "Numero",
+        "toTable": "InfoVendas"
+      },
+      {
+        "name": "AutoDetected_2d887d65-1894-4d2d-b1d3-34a6e6e46993",
+        "fromColumn": "Codigo do produto",
+        "fromTable": "Vendas",
+        "toColumn": "Codigo do produto",
+        "toTable": "Produtos"
+      },
+      {
+        "name": "AutoDetected_798275bd-becb-481a-b6d9-6644942d4370",
+        "fromColumn": "Matricula",
+        "fromTable": "InfoVendas",
+        "toColumn": "Matricula",
+        "toTable": "Vendedores"
+      },
+      {
+        "name": "76ebfe16-721a-42f6-ab00-bbb64c0e27c5",
+        "fromColumn": "Data",
+        "fromTable": "InfoVendas",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_7a6a4747-4e72-4fc3-9e3b-5357926d2ba3"
+      }
+    ],
+    "sourceQueryCulture": "pt-BR",
+    "tables": [
+      {
+        "name": "Vendas",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Numero",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f02901a5-e7af-4dbb-a0f4-7199f31f9096",
+            "sourceColumn": "Numero",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Codigo do produto",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b695367f-e0df-4011-bae7-f3aef186b77d",
+            "sourceColumn": "Codigo do produto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quantidade",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1dcdca4d-00fa-4fd2-92f9-39c9f27071e3",
+            "sourceColumn": "Quantidade",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Preco Calculado",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": "RELATED(Produtos[Preco])",
+            "isDataTypeInferred": true,
+            "lineageTag": "14298490-ca2d-4937-aebf-97c2db80a8cf",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Custo Calculado",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": "RELATED(Produtos[Custo])",
+            "isDataTypeInferred": true,
+            "lineageTag": "36c12f0c-13c9-43ca-a968-bf6b315f31cf",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Total Vendas",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "Vendas[Quantidade] * Vendas[Preco Calculado]",
+            "isDataTypeInferred": true,
+            "lineageTag": "ad9b202c-e0ed-4399-aa16-7070d689cc94",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "Margem",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "Vendas[Quantidade] * (Vendas[Preco Calculado] - Vendas[Custo Calculado])",
+            "isDataTypeInferred": true,
+            "lineageTag": "5a77ac4b-f9a8-4ae2-ae5a-186f1cc15505",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          },
+          {
+            "name": "Margem %",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "expression": "DIVIDE(Vendas[Margem], Vendas[Total Vendas], 0)",
+            "formatString": "0.00%;-0.00%;0.00%",
+            "isDataTypeInferred": true,
+            "lineageTag": "8009f985-1d8b-44b0-bf0d-9fa17ea2599a",
+            "summarizeBy": "sum",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "6dca8fcd-f5e0-4d2f-acf2-8b719577778e",
+        "partitions": [
+          {
+            "name": "Vendas",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = Excel.Workbook(File.Contents(#\"Fonte Dados\" & \"dataset-vendas-livraria.xlsx\"), null, true),",
+                "    Table_1_Table = Fonte{[Item=\"Table_1\",Kind=\"Table\"]}[Data]",
+                "in",
+                "    Table_1_Table"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DateTableTemplate_24672f00-8168-46c5-8597-16cfc84cecf7",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "1e60957a-b94d-4e25-9e81-022eb4a9659b",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isHidden": true,
+            "lineageTag": "39cbfbae-5f14-488f-9cd7-b1f52c809f93",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isHidden": true,
+            "lineageTag": "d7636205-5669-4375-af99-bb8757c70b8a",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Mês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "63d0a964-1a9b-4a80-ba21-aa68623f51e8",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isHidden": true,
+            "lineageTag": "6e929fc2-30b0-4675-bd29-f93e1c990ee2",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Trimestre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Trim \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "c00385b0-4852-4e09-af40-7fc869b6deca",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Dia",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isHidden": true,
+            "lineageTag": "9c0c2b83-7c5a-4ef1-8e90-a7ea49fa3d02",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarquia de datas",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Ano",
+                "column": "Ano",
+                "lineageTag": "ae32ff03-3406-4410-85d0-8e7df2f2525a",
+                "ordinal": 0
+              },
+              {
+                "name": "Trimestre",
+                "column": "Trimestre",
+                "lineageTag": "e016db30-f76f-4fd2-9d44-984bd2f95e5c",
+                "ordinal": 1
+              },
+              {
+                "name": "Mês",
+                "column": "Mês",
+                "lineageTag": "176b1b34-0c88-4df8-b8e4-c35d9fd828c1",
+                "ordinal": 2
+              },
+              {
+                "name": "Dia",
+                "column": "Dia",
+                "lineageTag": "2658b891-30a5-44c2-8584-d9cc6b7a3a33",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "f4c80abc-0b5c-49ab-b3ae-8b8d0b1069df"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "464f70ff-ae12-41f6-8dc0-89afb3820bd6",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_24672f00-8168-46c5-8597-16cfc84cecf7",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "InfoVendas",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Matricula",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "064f953c-ade9-4986-a5a4-b6e9dbdfae48",
+            "sourceColumn": "Matricula",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Data",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "50154d21-ae72-42e0-be96-faf58a9a730d",
+            "sourceColumn": "Data",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Hierarquia de datas",
+                  "table": "LocalDateTable_7a6a4747-4e72-4fc3-9e3b-5357926d2ba3"
+                },
+                "isDefault": true,
+                "relationship": "76ebfe16-721a-42f6-ab00-bbb64c0e27c5"
+              }
+            ]
+          },
+          {
+            "name": "Numero",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f2b71627-1cce-4b67-a812-87cdf25801c3",
+            "sourceColumn": "Numero",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Imposto",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5c27ce20-f7d7-4de0-80ae-5b05c92d6488",
+            "sourceColumn": "Imposto",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "e0c553da-15eb-4b48-a9c2-81c4b89393e8",
+        "partitions": [
+          {
+            "name": "InfoVendas",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = Excel.Workbook(File.Contents(#\"Fonte Dados\" & \"dataset-vendas-livraria.xlsx\"), null, true),",
+                "    Table_2_Table = Fonte{[Item=\"Table_2\",Kind=\"Table\"]}[Data]",
+                "in",
+                "    Table_2_Table"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Produtos",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Codigo do produto",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c9b0f76f-b3f8-4acf-be1d-4db45391217f",
+            "sourceColumn": "Codigo do produto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Nome do produto",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f22ad4c5-11e5-47c9-8fbb-dbce5df35d73",
+            "sourceColumn": "Nome do produto",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Categoria",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "31ba9707-f885-40f9-9b39-b137e4eb382c",
+            "sourceColumn": "Categoria",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Tipo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "24a1e27f-9e0c-48c5-a144-049f8791984f",
+            "sourceColumn": "Tipo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Preco",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "232ceeb1-467d-4280-a320-ac51baeddfcd",
+            "sourceColumn": "Preco",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Custo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4134cfce-cc5c-4b03-86f8-1d2fd0bb92d8",
+            "sourceColumn": "Custo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Desconto Preco",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": [
+              "",
+              "VAR DescontoProduto = Produtos[Preco] * 0.5",
+              "RETURN DescontoProduto"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "a6660206-ae5c-4358-a0a8-8554c3e7d914",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Descontro Preco Funcao",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "expression": "DIVIDE(Produtos[Preco], 2, 0)",
+            "isDataTypeInferred": true,
+            "lineageTag": "2a3c11fe-dd98-489d-a86d-23ccf199dcc4",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "bd4c8869-b974-4228-bb32-b09a48a8dce5",
+        "partitions": [
+          {
+            "name": "Produtos",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = Excel.Workbook(File.Contents(#\"Fonte Dados\" & \"dataset-vendas-livraria.xlsx\"), null, true),",
+                "    Table_3_Table = Fonte{[Item=\"Table_3\",Kind=\"Table\"]}[Data]",
+                "in",
+                "    Table_3_Table"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Vendedores",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navegação"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Matricula",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a1044cc4-da58-42c0-8562-5d7a688022b0",
+            "sourceColumn": "Matricula",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Nome",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "95185f1a-48ea-4e4f-9d52-c55c91aceffb",
+            "sourceColumn": "Nome",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Percentual Comissao",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "18840ec5-e1ff-4d67-8ed3-ec2f475a743e",
+            "sourceColumn": "Percentual Comissao",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "17876e84-06b6-41e2-ba7f-4f48aaf454f2",
+        "partitions": [
+          {
+            "name": "Vendedores",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = Excel.Workbook(File.Contents(#\"Fonte Dados\" & \"dataset-vendas-livraria.xlsx\"), null, true),",
+                "    Table_4_Table = Fonte{[Item=\"Table_4\",Kind=\"Table\"]}[Data]",
+                "in",
+                "    Table_4_Table"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_7a6a4747-4e72-4fc3-9e3b-5357926d2ba3",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "b5a03281-e133-4317-a6d0-55c9be6a92b6",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isHidden": true,
+            "lineageTag": "c29ca010-aec6-46e6-b0bb-4fa7888e90e3",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isHidden": true,
+            "lineageTag": "f7afab8c-e59e-462d-bad9-be6494afa36c",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Mês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "81daa762-9fc7-4543-9444-1c417d2a2b03",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isHidden": true,
+            "lineageTag": "3e2ac375-f6a3-4eec-847b-e2fa40903fd7",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Trimestre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Trim \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "a0b546bb-107f-4b67-893d-3349b1493449",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Dia",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isHidden": true,
+            "lineageTag": "2f4957e6-b032-4450-b566-e55e1f6996e7",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarquia de datas",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Ano",
+                "column": "Ano",
+                "lineageTag": "3f6fce76-bba3-4a96-8eef-aba85487ff1f",
+                "ordinal": 0
+              },
+              {
+                "name": "Trimestre",
+                "column": "Trimestre",
+                "lineageTag": "14bee1eb-6b7d-481b-9a17-fb226ae7b7eb",
+                "ordinal": 1
+              },
+              {
+                "name": "Mês",
+                "column": "Mês",
+                "lineageTag": "59eccf59-910c-4487-a05d-3d012ffaa731",
+                "ordinal": 2
+              },
+              {
+                "name": "Dia",
+                "column": "Dia",
+                "lineageTag": "adb9d5c5-8e46-4922-987e-f710853537b0",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "f59096c3-8f94-4e60-9768-4338ba013ab8"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "75b64bc1-0d81-4b5b-ace8-cdeefc0a7185",
+        "partitions": [
+          {
+            "name": "LocalDateTable_7a6a4747-4e72-4fc3-9e3b-5357926d2ba3",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('InfoVendas'[Data])), 1, 1), Date(Year(MAX('InfoVendas'[Data])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "Medidas",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "fc5080f74b374b0c90cc1cbdce0e715e"
+          },
+          {
+            "name": "436ba87b-9c83-4389-a31b-ebd06a36be98",
+            "value": "{\"Expression\":\"\"}"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Column",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "7b99dac6-3bff-4e0e-be66-28ff1d88c915",
+            "sourceColumn": "[Column]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "eba088ee-2400-416d-9eb5-82993cd78cd6",
+        "measures": [
+          {
+            "name": "Margem %",
+            "expression": "DIVIDE(sum(Vendas[Margem]),sum(Vendas[Total Vendas]), 0)",
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "b56ffe55-ec78-4543-a470-732b9b3ba0cb"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Medidas",
+            "mode": "import",
+            "source": {
+              "expression": "Row(\"Column\", BLANK())",
+              "type": "calculated"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
